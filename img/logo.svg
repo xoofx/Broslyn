@@ -18,10 +18,13 @@
    xml:space="preserve"
    id="svg16"
    sodipodi:docname="logo.svg"
-   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"><metadata
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   inkscape:export-filename="C:\code\RoslynBuddy\img\logo.png"
+   inkscape:export-xdpi="491.51999"
+   inkscape:export-ydpi="491.51999"><metadata
      id="metadata22"><rdf:RDF><cc:Work
          rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><defs
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
      id="defs20" /><sodipodi:namedview
      pagecolor="#ffffff"
      bordercolor="#666666"
@@ -36,7 +39,7 @@
      id="namedview18"
      showgrid="false"
      inkscape:zoom="13.350176"
-     inkscape:cx="60.684658"
+     inkscape:cx="59.448719"
      inkscape:cy="47.506764"
      inkscape:window-x="321"
      inkscape:window-y="190"
