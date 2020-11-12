@@ -30,10 +30,15 @@ jobs:
       with:
         dotnet-version: '5.0.x'
 
-    - name: Build & test (Release)
-      run: dotnet test src -c Release
+    - name: Build (Release)
+      run: |
+          dotnet build src -c Release
 
-    - name: Pack
+    - name: Test (Release)
+      run: |
+          dotnet test src -c Release
+
+    - name: Pack (Release)
       run: |
           dotnet pack src -c Release
 
