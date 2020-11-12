@@ -2,10 +2,10 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-	<Description>Scriban is a fast, powerful, safe and lightweight text templating language and engine for .NET, with a compatibility mode for parsing liquid templates.</Description>
+	<Description>A lightweight utility library to create a Roslyn AdhocWorkspace from an existing solution`/`csproj.</Description>
 	<Copyright>Alexandre Mutel</Copyright>
 	<NeutralLanguage>en-US</NeutralLanguage>
-	<VersionPrefix>1.0.0</VersionPrefix>
+	<VersionPrefix>1.0.1</VersionPrefix>
 	<LangVersion>8.0</LangVersion>
 	<Authors>Alexandre Mutel</Authors>
 	<PackageTags>roslyn</PackageTags>
