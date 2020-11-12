@@ -9,9 +9,9 @@
 	<LangVersion>8.0</LangVersion>
 	<Authors>Alexandre Mutel</Authors>
 	<PackageTags>roslyn</PackageTags>
-	<PackageReleaseNotes>https://github.com/xoofx/RoslynBuddy/blob/master/changelog.md</PackageReleaseNotes>
+	<PackageReleaseNotes>https://github.com/xoofx/Broslyn/blob/master/changelog.md</PackageReleaseNotes>
 	<PackageIcon>logo.png</PackageIcon>
-	<PackageProjectUrl>https://github.com/xoofx/RoslynBuddy</PackageProjectUrl>
+	<PackageProjectUrl>https://github.com/xoofx/Broslyn</PackageProjectUrl>
 	<PackageLicenseExpression>BSD-2-Clause</PackageLicenseExpression>
 	<NoWarn>$(NoWarn);CS1591</NoWarn>
 	<GenerateDocumentationFile>true</GenerateDocumentationFile>

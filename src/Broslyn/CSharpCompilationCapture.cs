@@ -8,7 +8,7 @@ using System.Text.RegularExpressions;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 
-namespace RoslynBuddy
+namespace Broslyn
 {
     /// <summary>
     /// Frontend class to capture the build of a project/solution that contains CSharp projects.

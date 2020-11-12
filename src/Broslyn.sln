@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30626.31
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoslynBuddy", "RoslynBuddy\RoslynBuddy.csproj", "{50D6A2DC-FE21-4355-9E10-66F071807DA6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Broslyn", "Broslyn\Broslyn.csproj", "{50D6A2DC-FE21-4355-9E10-66F071807DA6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoslynBuddy.Tests", "RoslynBuddy.Tests\RoslynBuddy.Tests.csproj", "{A3A36DD6-9593-4F94-8E27-54B2E238C976}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Broslyn.Tests", "Broslyn.Tests\Broslyn.Tests.csproj", "{A3A36DD6-9593-4F94-8E27-54B2E238C976}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{F490171D-C09B-41DB-AA42-64BFFAB82D2A}"
 	ProjectSection(SolutionItems) = preProject

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Microsoft.CodeAnalysis;
 using NUnit.Framework;
 
-namespace RoslynBuddy.Tests
+namespace Broslyn.Tests
 {
     /// <summary>
     /// Testing <see cref="CSharpCompilationCapture"/>

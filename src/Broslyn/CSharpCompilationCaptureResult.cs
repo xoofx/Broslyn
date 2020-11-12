@@ -2,7 +2,7 @@
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 
-namespace RoslynBuddy
+namespace Broslyn
 {
     /// <summary>
     /// Result of a CSharp compilation capture that provides access to a Roslyn Workspace to allow in memory inspection.

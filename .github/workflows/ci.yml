@@ -1,7 +1,7 @@
 name: ci
 
 env:
-  PROJECT_NAME: RoslynBuddy
+  PROJECT_NAME: Broslyn
 
 on:
   push:
