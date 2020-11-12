@@ -109,7 +109,7 @@ namespace RoslynBuddy
             Exception innerException = null;
             try
             {
-                var argsBuilder = new StringBuilder($"msbuild /t:rebuild /binaryLogger:{EscapeValue(tempBinlogFilePath)} /verbosity:minimal /nologo {EscapeValue(projectFileOrSolution)}");
+                var argsBuilder = new StringBuilder($"msbuild /t:restore /t:rebuild /binaryLogger:{EscapeValue(tempBinlogFilePath)} /verbosity:minimal /nologo {EscapeValue(projectFileOrSolution)}");
                 // Pass all our user properties to msbuild
                 foreach (var property in properties)
                 {
@@ -125,6 +125,7 @@ namespace RoslynBuddy
                     RedirectStandardError = true
                 };
                 var process = new Process() {StartInfo = startInfo};
+                //Console.WriteLine($"dotnet {startInfo.Arguments}");
 
                 var output = new StringBuilder();
                 process.OutputDataReceived += (_, e) =>
