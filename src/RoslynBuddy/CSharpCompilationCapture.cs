@@ -106,9 +106,10 @@ namespace RoslynBuddy
             bool success = false;
             string errorMessage = null;
 
+            Exception innerException = null;
             try
             {
-                var argsBuilder = new StringBuilder($"msbuild /t:rebuild /binaryLogger:{EscapeValue(tempBinlogFilePath)} /noConsoleLogger /verbosity:quiet /nologo {EscapeValue(projectFileOrSolution)}");
+                var argsBuilder = new StringBuilder($"msbuild /t:rebuild /binaryLogger:{EscapeValue(tempBinlogFilePath)} /verbosity:minimal /nologo {EscapeValue(projectFileOrSolution)}");
                 // Pass all our user properties to msbuild
                 foreach (var property in properties)
                 {
@@ -150,7 +151,7 @@ namespace RoslynBuddy
 
                 if (process.ExitCode != 0)
                 {
-                    errorMessage = $"Unable to build {{projectFileOrSolution}}. Reason:\n{output}";
+                    errorMessage = $"Unable to build {projectFileOrSolution}. Reason:\n{output}";
                 }
                 else
                 {
@@ -159,12 +160,15 @@ namespace RoslynBuddy
             }
             catch (Exception ex)
             {
-                errorMessage = $"Unable to build {{projectFileOrSolution}}. Reason:\n{ex.Message}";
+                errorMessage = $"Unexpected exceptions when trying to build {projectFileOrSolution}. Reason:\n{ex}";
+                innerException = ex;
             }
 
             if (!success)
             {
                 File.Delete(tempBinlogFilePath);
+                if (innerException != null)
+                    throw new InvalidOperationException(errorMessage, innerException);
                 throw new InvalidOperationException(errorMessage);
             }
 
@@ -268,7 +272,7 @@ namespace RoslynBuddy
             return args;
         }
 
-        private static readonly Regex MatchWhitespace = new Regex(@"\s");
+        private static readonly Regex MatchWhitespace = new Regex(@"[\s\:]");
 
         private static string EscapeValue(string path)
         {
