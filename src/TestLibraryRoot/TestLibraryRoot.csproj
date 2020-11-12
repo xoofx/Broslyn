@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;netcoreapp3.1</TargetFrameworks>
+	<IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TestLibrary1\TestLibrary1.csproj" />
+    <ProjectReference Include="..\TestLibrary2\TestLibrary2.csproj" />
+  </ItemGroup>
+
+</Project>
