@@ -17,7 +17,7 @@ namespace RoslynBuddy.Tests
         [Test]
         public async Task TestLibraryRoot()
         {
-            var projectPath = Path.Combine(Environment.CurrentDirectory, @"..\..\..\..\TestLibraryRoot\TestLibraryRoot.csproj");
+            var projectPath = Path.Combine(Environment.CurrentDirectory, "..", "..", "..", "..", "TestLibraryRoot", "TestLibraryRoot.csproj");
 
             var clock = Stopwatch.StartNew();
             var result = CSharpCompilationCapture.Build(projectPath);
