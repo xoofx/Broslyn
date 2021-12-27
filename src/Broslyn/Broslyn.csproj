@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>net6.0;netstandard2.0</TargetFrameworks>
 	<Description>A lightweight utility library to create a Roslyn AdhocWorkspace from an existing solution`/`csproj.</Description>
 	<Copyright>Alexandre Mutel</Copyright>
 	<NeutralLanguage>en-US</NeutralLanguage>
@@ -23,8 +23,8 @@
 
   <ItemGroup>
     <None Include="../../img/logo.png" Pack="true" PackagePath="" />
-    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="3.7.0" />
-    <PackageReference Include="MSBuild.StructuredLogger" Version="2.1.215" />
+	<PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="4.0.1" />
+    <PackageReference Include="MSBuild.StructuredLogger" Version="2.1.545" />
     <!--Add support for sourcelink-->
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.*" PrivateAssets="All" />
   </ItemGroup>
