@@ -1,5 +1,7 @@
 # Changelog
 
+> This changelog is no longer used. Please visit https://github.com/xoofx/Broslyn/releases
+
 ## 1.1.0 (6 Jan 2022)
 - Use net6.0 to avoid .NET Framework dependency to `Microsoft.Build` (PR #3)
 

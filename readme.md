@@ -1,6 +1,6 @@
 # Broslyn [![Build Status](https://github.com/xoofx/Broslyn/workflows/ci/badge.svg?branch=master)](https://github.com/xoofx/Broslyn/actions) [![NuGet](https://img.shields.io/nuget/v/Broslyn.svg)](https://www.nuget.org/packages/Broslyn/)
 
-<img align="right" width="160px" height="160px" src="img/logo.png">
+<img align="right" width="160px" height="160px" src="https://raw.githubusercontent.com/xoofx/Broslyn/master/img/logo.png">
 
 A lightweight utility library to create a Roslyn `AdhocWorkspace` from an existing `solution`/`csproj`, by capturing the CSharp compiler emited command while rebuilding the project.
 This can be used primarily for syntax tree inspection/code generation.
