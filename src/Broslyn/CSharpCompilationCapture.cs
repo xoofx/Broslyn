@@ -7,6 +7,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
+using Microsoft.CodeAnalysis.Text;
 
 namespace Broslyn
 {
@@ -195,7 +196,8 @@ namespace Broslyn
                 {
                     name = name.Substring(invocation.ProjectDirectory.Length);
                 }
-                var document = project.AddDocument(name, File.ReadAllText(filePath), filePath: filePath);
+                // Set encoding to avoid running into CS8055 later (https://github.com/dotnet/roslyn/issues/43840)
+                var document = project.AddDocument(name, SourceText.From(File.ReadAllText(filePath), Encoding.UTF8), filePath: filePath);
                 project = document.Project;
             }
 
