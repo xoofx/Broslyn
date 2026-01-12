@@ -24,8 +24,12 @@ jobs:
       with:
         dotnet-version: '10.0.x'
 
-    - name: Build, Test, Pack, Publish
+    - name: Build and Test
+      run: dotnet test src/Broslyn.slnx -c Release
+
+    - name: Pack and Publish
+      if: github.event_name == 'push' && github.ref == 'refs/heads/master'
       shell: bash
       run: |
         dotnet tool install -g dotnet-releaser --configfile .github/workflows/nuget_org_only.config
-        dotnet-releaser run --nuget-token ${{secrets.NUGET_TOKEN}} --github-token  ${{secrets.GITHUB_TOKEN}} src/dotnet-releaser.toml
+        dotnet-releaser run --nuget-token ${{secrets.NUGET_TOKEN}} --github-token ${{secrets.GITHUB_TOKEN}} src/dotnet-releaser.toml
