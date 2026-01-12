@@ -28,26 +28,26 @@ namespace Broslyn.Tests
             // TestLibrary1
             // TestLibrary2
             // TestLibraryRoot (netcoreapp3.1) + TestLibraryRoot (netstandard2.0)
-            Assert.AreEqual(1 + 1 + 2, workspace.CurrentSolution.Projects.Count());
+            Assert.That(workspace.CurrentSolution.Projects.Count(), Is.EqualTo(1 + 1 + 2));
 
-            Assert.True(workspace.CurrentSolution.Projects.Any(p => p.Name == "TestLibrary1"), "Expecting TestLibrary1 in the projects");
-            Assert.True(workspace.CurrentSolution.Projects.Any(p => p.Name == "TestLibrary2"), "Expecting TestLibrary1 in the projects");
-            Assert.AreEqual(2, workspace.CurrentSolution.Projects.Count(p => p.Name == "TestLibraryRoot"), "Expecting 2 TestLibraryRoot projects");
+            Assert.That(workspace.CurrentSolution.Projects.Any(p => p.Name == "TestLibrary1"), Is.True, "Expecting TestLibrary1 in the projects");
+            Assert.That(workspace.CurrentSolution.Projects.Any(p => p.Name == "TestLibrary2"), Is.True, "Expecting TestLibrary1 in the projects");
+            Assert.That(workspace.CurrentSolution.Projects.Count(p => p.Name == "TestLibraryRoot"), Is.EqualTo(2), "Expecting 2 TestLibraryRoot projects");
 
             foreach (var project in workspace.CurrentSolution.Projects)
             {
                 clock.Restart();
-                Assert.AreEqual(OptimizationLevel.Debug, project.CompilationOptions.OptimizationLevel);
-                
+                Assert.That(project.CompilationOptions?.OptimizationLevel, Is.EqualTo(OptimizationLevel.Debug));
+
                 var hasArguments = result.TryGetCommandLineArguments(project, out var arguments);
-                Assert.True(hasArguments, "Unable to retrieve CSharp Arguments by Project");
+                Assert.That(hasArguments, Is.True, "Unable to retrieve CSharp Arguments by Project");
                 hasArguments = result.TryGetCommandLineArguments(project.Id, out arguments);
-                Assert.True(hasArguments, "Unable to retrieve CSharp Arguments by ProjectId");
+                Assert.That(hasArguments, Is.True, "Unable to retrieve CSharp Arguments by ProjectId");
 
                 // Compile the project
                 var compilation = await project.GetCompilationAsync();
-                Assert.NotNull(compilation, "Compilation must not be null");
-                var diagnostics = compilation.GetDiagnostics();
+                Assert.That(compilation, Is.Not.Null, "Compilation must not be null");
+                var diagnostics = compilation!.GetDiagnostics();
 
                 var errors = diagnostics.Where(x => x.Severity == DiagnosticSeverity.Error).ToList();
                 if (errors.Count > 0)
@@ -58,15 +58,15 @@ namespace Broslyn.Tests
                     {
                         builder.AppendLine($"{diag}");
                     }
-                    Assert.AreEqual(0, errors.Count, $"Invalid compilation errors: {builder}");
+                    Assert.Fail($"Invalid compilation errors: {builder}");
                 }
                 else
                 {
-                    Console.WriteLine($"Project {project.Name} ({project.CompilationOptions.OptimizationLevel}) in-memory compiled in {clock.Elapsed.TotalMilliseconds}ms");
-                    
+                    Console.WriteLine($"Project {project.Name} ({project.CompilationOptions?.OptimizationLevel}) in-memory compiled in {clock.Elapsed.TotalMilliseconds}ms");
+
                     // We should have at least 1 syntax tree
                     var trees = compilation.SyntaxTrees.ToList();
-                    Assert.AreNotEqual(0, trees.Count, "Expecting SyntaxTrees");
+                    Assert.That(trees.Count, Is.Not.EqualTo(0), "Expecting SyntaxTrees");
                 }
             }
         }
