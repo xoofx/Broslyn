@@ -1,0 +1,19 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Folder Name="/build/">
+    <File Path="../.github/workflows/ci.yml" />
+    <File Path="../.gitignore" />
+    <File Path="../changelog.md" />
+    <File Path="../license.txt" />
+    <File Path="../readme.md" />
+    <File Path="dotnet-releaser.toml" />
+    <File Path="global.json" />
+  </Folder>
+  <Project Path="Broslyn.Tests.Net10/Broslyn.Tests.Net10.csproj" />
+  <Project Path="Broslyn.Tests/Broslyn.Tests.csproj" />
+  <Project Path="Broslyn/Broslyn.csproj" />
+</Solution>
