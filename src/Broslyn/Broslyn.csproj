@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFrameworks>net10.0;netstandard2.0</TargetFrameworks>
@@ -21,11 +21,11 @@
   <ItemGroup>
     <None Include="../../readme.md" Pack="true" PackagePath="/" />
     <None Include="../../img/logo.png" Pack="true" PackagePath="" />
-    <PackageReference Include="MinVer" Version="7.0.0">
+    <PackageReference Include="MinVer">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="5.0.0" />
-    <PackageReference Include="MSBuild.StructuredLogger" Version="2.3.113" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" />
+    <PackageReference Include="MSBuild.StructuredLogger" />
   </ItemGroup>
 </Project>
