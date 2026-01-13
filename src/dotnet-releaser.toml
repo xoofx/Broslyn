@@ -1,6 +1,6 @@
 # configuration file for dotnet-releaser
 [msbuild]
-project = "./Broslyn.sln"
+project = "./Broslyn.slnx"
 [github]
 user = "xoofx"
 repo = "Broslyn"
