@@ -22,23 +22,23 @@ public class Net10CompilationCaptureTests
         var workspace = result.Workspace;
 
         // TestLibraryNet10 (net10.0)
-        Assert.That(workspace.CurrentSolution.Projects.Count(), Is.EqualTo(1));
+        Assert.AreEqual(1, workspace.CurrentSolution.Projects.Count());
 
-        Assert.That(workspace.CurrentSolution.Projects.Any(p => p.Name == "TestLibraryNet10"), Is.True, "Expecting TestLibraryNet10 in the projects");
+        Assert.IsTrue(workspace.CurrentSolution.Projects.Any(p => p.Name == "TestLibraryNet10"), "Expecting TestLibraryNet10 in the projects");
 
         foreach (var project in workspace.CurrentSolution.Projects)
         {
             clock.Restart();
-            Assert.That(project.CompilationOptions?.OptimizationLevel, Is.EqualTo(OptimizationLevel.Debug));
+            Assert.AreEqual(OptimizationLevel.Debug, project.CompilationOptions?.OptimizationLevel);
 
             var hasArguments = result.TryGetCommandLineArguments(project, out var arguments);
-            Assert.That(hasArguments, Is.True, "Unable to retrieve CSharp Arguments by Project");
+            Assert.IsTrue(hasArguments, "Unable to retrieve CSharp Arguments by Project");
             hasArguments = result.TryGetCommandLineArguments(project.Id, out arguments);
-            Assert.That(hasArguments, Is.True, "Unable to retrieve CSharp Arguments by ProjectId");
+            Assert.IsTrue(hasArguments, "Unable to retrieve CSharp Arguments by ProjectId");
 
             // Compile the project
             var compilation = await project.GetCompilationAsync();
-            Assert.That(compilation, Is.Not.Null, "Compilation must not be null");
+            Assert.IsNotNull(compilation, "Compilation must not be null");
             var diagnostics = compilation!.GetDiagnostics();
 
             var errors = diagnostics.Where(x => x.Severity == DiagnosticSeverity.Error).ToList();
@@ -58,7 +58,7 @@ public class Net10CompilationCaptureTests
 
                 // We should have at least 1 syntax tree
                 var trees = compilation.SyntaxTrees.ToList();
-                Assert.That(trees.Count, Is.Not.EqualTo(0), "Expecting SyntaxTrees");
+                Assert.AreNotEqual(0, trees.Count, "Expecting SyntaxTrees");
             }
         }
     }
