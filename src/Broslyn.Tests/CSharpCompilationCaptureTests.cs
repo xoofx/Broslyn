@@ -38,7 +38,7 @@ namespace Broslyn.Tests
             {
                 clock.Restart();
                 Assert.AreEqual(OptimizationLevel.Debug, project.CompilationOptions.OptimizationLevel);
-                
+
                 var hasArguments = result.TryGetCommandLineArguments(project, out var arguments);
                 Assert.True(hasArguments, "Unable to retrieve CSharp Arguments by Project");
                 hasArguments = result.TryGetCommandLineArguments(project.Id, out arguments);
@@ -63,7 +63,7 @@ namespace Broslyn.Tests
                 else
                 {
                     Console.WriteLine($"Project {project.Name} ({project.CompilationOptions.OptimizationLevel}) in-memory compiled in {clock.Elapsed.TotalMilliseconds}ms");
-                    
+
                     // We should have at least 1 syntax tree
                     var trees = compilation.SyntaxTrees.ToList();
                     Assert.AreNotEqual(0, trees.Count, "Expecting SyntaxTrees");
